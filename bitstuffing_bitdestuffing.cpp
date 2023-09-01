@@ -14,52 +14,52 @@ void bitstuffing(char b[100])
                 k=i;
             if(j==6)
             {
-                char temp=b[i];
-                b[i+1]=temp;
+                for(int o=w+1; o>k; o--)
+                {
+                    b[o+1]=b[o];
+                }
             }
         }
         else
             j=0;
-
+    }
     b[k+1]='0';
-}
     cout<<"sender side: "<<b<<endl;
-
-    int m=0;
-    for(int i=0; b[i]!='\0'; i++)
+    int m=0,g;
+    if(w!=strlen(b))
     {
-        if(w!=strlen(b))
+        for(int i=0; b[i]!='\0'; i++)
+
+
         {
             if(b[i]=='1')
             {
                 m++;
                 if(m==5)
                 {
-                    for(int g=i; b[g]!='\0'; g++)
+                    if(b[i+1]=='0' && b[i+2]=='1')
                     {
-                        if(b[i+1]=='0' && b[i+2]=='1')
+                        for(g=i; b[g]!='\0'; g++)
                         {
-                            char temp=b[i+2];
-                            b[i+1]=temp;
+                            b[g+1]=b[g+2];
                         }
                     }
                 }
+            }
                 else
                     m=0;
-            }
-        b[w+1]='\0';
         }
     }
-        cout<<"receiver side: "<<b<<endl;
+    cout<<"receiver side: "<<b<<endl;
 
 }
-    int main()
-    {
+int main()
+{
 
-        char a[100];
-        cout<<"enter an bit :"<<endl;
-        cin>>a;
-        bitstuffing(a);
-        return 0;
+    char a[100];
+    cout<<"enter an bit :"<<endl;
+    cin>>a;
+    bitstuffing(a);
+    return 0;
 
-    }
+}
