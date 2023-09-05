@@ -8,7 +8,7 @@ class object3
   public:
       void sum(object,object2);
 
-;
+};
 class object{
   int a;
   public:
