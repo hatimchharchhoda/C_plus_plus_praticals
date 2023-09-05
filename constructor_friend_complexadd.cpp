@@ -9,7 +9,7 @@ class complex1{
               b=y;
               cout<<"complex :"<<z<<"+"<<y<<"i"<<endl;
         }
-        friend void add(complex1 ci,complex2 c2);
+        friend void add(complex1,complex2);
 };
 class complex2{
     int q,w;
@@ -19,7 +19,7 @@ public:
         w=d;
         cout<<"complex :"<<s<<"+"<<d<<"i"<<endl;
     }
-    friend void add(complex1 c1,complex2 c2);
+    friend void add(complex1,complex2);
 };
 void add(complex1 c1,complex2 c2){
     cout<<"now complex is :"<<c1.a+c2.q<<"+"<<c1.b+c2.w<<"i"<<endl;
