@@ -4,12 +4,14 @@ class fact
 {
     int a,b=1;
 public:
-    fact(){
+    fact()
+    {
         cout<<"enter the no. : ";
         cin>>a;
     }
     fact(fact &c)
-    {   a=c.a;
+    {
+        a=c.a;
         for(int i=1; i<=a; i++)
         {
             b=b*i;
@@ -19,6 +21,6 @@ public:
 };
 int main()
 {
-     fact f1,f2(f1);
-     return 0;
+    fact f1,f2(f1);
+    return 0;
 }
