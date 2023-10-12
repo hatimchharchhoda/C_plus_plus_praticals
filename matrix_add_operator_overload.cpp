@@ -2,7 +2,7 @@
 using namespace std;
 class matrix
 {
-    int a[3][3];
+    int a[3][3],mul[3][3];
 public:
     matrix()
     {
@@ -20,7 +20,7 @@ public:
             }
         }
         cout<<"matrix: \n";
-            for(int i=0; i<x; i++)
+        for(int i=0; i<x; i++)
         {
             for(int j=0; j<y; j++)
             {
@@ -32,7 +32,7 @@ public:
     matrix operator +(matrix x)
     {
         cout<<"added matrix: \n";
-            for(int i=0; i<3; i++)
+        for(int i=0; i<3; i++)
         {
             for(int j=0; j<3; j++)
             {
@@ -41,10 +41,28 @@ public:
             cout<<endl;
         }
     }
+    matrix operator*(matrix y)
+    {
+        cout << "multiplied Matrix:"<<endl;
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                mul[i][j]=0;
+                for(int k=0; k<3; k++)
+                {
+                    mul[i][j] += ( a[i][k] * y.a[k][j] );
+                }
+                cout << mul[i][j]<<"\t";
+            }
+            cout << endl;
+        }
+    }
 };
 int main()
 {
-    matrix m1(3,3),m2(3,3),m3;
-    m3=m1+m2;
+    matrix m1(3,3),m2(3,3),m3,m4;
+    m1+m2;
+    m1*m2;
     return 0;
 }
